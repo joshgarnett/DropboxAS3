@@ -47,58 +47,6 @@ package com.adverserealms.dropbox.command
 			return asyncToken;
 		}
 		
-		/*
-			{
-			   "status":200,
-			   "body":{
-			      "hash":"e845e09a55219f5f4b23a872528582ef",
-			      "revision":33815,
-			      "thumb_exists":false,
-			      "bytes":0,
-			      "modified":"Sat, 28 Aug 2010 03:54:52 +0000",
-			      "path":"/Simple Directory",
-			      "is_dir":true,
-			      "icon":"folder",
-			      "root":"dropbox",
-			      "contents":[
-			         {
-			            "revision":33820,
-			            "thumb_exists":false,
-			            "bytes":622,
-			            "modified":"Sat, 28 Aug 2010 03:55:15 +0000",
-			            "path":"/Simple Directory/adobenotes.txt",
-			            "is_dir":false,
-			            "icon":"page_white_text",
-			            "mime_type":"text/plain",
-			            "size":"622 bytes"
-			         },
-			         {
-			            "revision":33821,
-			            "thumb_exists":true,
-			            "bytes":466559,
-			            "modified":"Sat, 28 Aug 2010 03:55:52 +0000",
-			            "path":"/Simple Directory/manage1.png",
-			            "is_dir":false,
-			            "icon":"page_white_picture",
-			            "mime_type":"image/png",
-			            "size":"455.6KB"
-			         },
-			         {
-			            "revision":33818,
-			            "thumb_exists":false,
-			            "bytes":0,
-			            "modified":"Sat, 28 Aug 2010 03:54:59 +0000",
-			            "path":"/Simple Directory/subdirectory",
-			            "is_dir":true,
-			            "icon":"folder",
-			            "size":"0 bytes"
-			         }
-			      ],
-			      "size":"0 bytes"
-			   },
-			   "response":"OK"
-			}
-		*/
 		protected override function handleResult(data:Object):Object
 		{
 			var jsonResult:String = data as String;
