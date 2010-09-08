@@ -1,1 +1,6 @@
 Dropbox AS3 API is an ActionScript API for http://www.dropbox.com/
+
+
+Uses:
+OAuth-AS3 library found at http://code.google.com/p/oauth-as3/
+as3corelib library found at http://github.com/mikechambers/as3corelib
