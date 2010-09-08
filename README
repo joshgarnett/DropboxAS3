@@ -1,5 +1,8 @@
 Dropbox AS3 API is an ActionScript API for http://www.dropbox.com/
 
+Code is released under the BSD License:
+http://www.opensource.org/licenses/bsd-license.php
+
 
 Uses:
 OAuth-AS3 library found at http://code.google.com/p/oauth-as3/
