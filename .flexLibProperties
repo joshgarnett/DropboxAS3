@@ -5,12 +5,13 @@
     <classEntry path="com.adverserealms.core.model.HTTPFault"/>
     <classEntry path="com.adverserealms.core.net.HTTPLoader"/>
     <classEntry path="com.adverserealms.core.util.ReflectionUtil"/>
+    <classEntry path="com.adverserealms.core.util.URLUtil"/>
     <classEntry path="com.adverserealms.dropbox.command.GetAccountInfo"/>
     <classEntry path="com.adverserealms.dropbox.command.GetMetadata"/>
     <classEntry path="com.adverserealms.dropbox.command.GetToken"/>
     <classEntry path="com.adverserealms.dropbox.config.Services"/>
     <classEntry path="com.adverserealms.dropbox.model.AccountInfo"/>
-    <classEntry path="com.adverserealms.dropbox.model.Metadata"/>
+    <classEntry path="com.adverserealms.dropbox.model.DropboxFile"/>
     <classEntry path="com.adverserealms.dropbox.service.DropboxConnection"/>
     <classEntry path="com.adverserealms.dropbox.util.ValidateResult"/>
   </includeClasses>

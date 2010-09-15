@@ -5,7 +5,7 @@ package com.adverserealms.dropbox.command
 	import com.adverserealms.core.model.HTTPFault;
 	import com.adverserealms.core.net.HTTPLoader;
 	import com.adverserealms.dropbox.config.Services;
-	import com.adverserealms.dropbox.model.Metadata;
+	import com.adverserealms.dropbox.model.DropboxFile;
 	import com.adverserealms.dropbox.util.ValidateResult;
 	
 	import mx.collections.ArrayCollection;
@@ -18,9 +18,9 @@ package com.adverserealms.dropbox.command
 
 	public class GetMetadata extends AsyncCommand
 	{
-		private var metadata:Metadata;
+		private var metadata:DropboxFile;
 		
-		public function execute(consumer:OAuthConsumer, token:OAuthToken, metadata:Metadata) : AsyncToken {
+		public function execute(consumer:OAuthConsumer, token:OAuthToken, metadata:DropboxFile) : AsyncToken {
 			this.metadata = metadata;
 			
 			var params:Object = new Object();
@@ -31,11 +31,11 @@ package com.adverserealms.dropbox.command
 				params.hash = metadata.hash;
 			}
 			
-			if(metadata.isDir && Metadata.directoryCache[metadata.path] == null) {
-				Metadata.directoryCache[metadata.path] = metadata;
+			if(metadata.isDir && DropboxFile.directoryCache[metadata.path] == null) {
+				DropboxFile.directoryCache[metadata.path] = metadata;
 			}
 			
-			var path:String = metadata.path.replace(" ","%20");
+			var path:String = metadata.path.replace(/ /g,"%20");
 			
 			var request:OAuthRequest = new OAuthRequest("GET",Services.metadataService+path, params, consumer, token);
 			
@@ -68,17 +68,17 @@ package com.adverserealms.dropbox.command
 							for(var i:Number = 0; i < contents.length; i++) {
 								var o:Object = contents[i];
 								
-								var mdata:Metadata;
-								if(o.is_dir == "true" && Metadata.directoryCache[o.path] != null) {
-									mdata = Metadata.directoryCache[o.path];
+								var mdata:DropboxFile;
+								if(o.is_dir == "true" && DropboxFile.directoryCache[o.path] != null) {
+									mdata = DropboxFile.directoryCache[o.path];
 								}
 								else {
-									mdata = new Metadata();
+									mdata = new DropboxFile();
 								
 									setMetadataValues(mdata,o);
 									mdata.parent = this.metadata;
 								
-									Metadata.directoryCache[mdata.path] = mdata;	
+									DropboxFile.directoryCache[mdata.path] = mdata;	
 								}
 								
 								metadataContents.push(mdata);
@@ -99,7 +99,7 @@ package com.adverserealms.dropbox.command
 			}
 		}
 		
-		private function setMetadataValues(mdata:Metadata,jsonObject:Object) : void {
+		private function setMetadataValues(mdata:DropboxFile,jsonObject:Object) : void {
 			mdata.hash = jsonObject.hash;
 			mdata.revision = jsonObject.revision;
 			mdata.thumbExists = jsonObject.thumb_exists;
